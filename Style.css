@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.card {
+  background: #111827;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+}
+
+.password-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.password-box input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+}
+
+.password-box button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+.strength-meter {
+  width: 100%;
+  height: 10px;
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#strengthBar {
+  height: 100%;
+  width: 0%;
+  transition: 0.3s;
+}
+
+#strengthText {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+ul li {
+  margin: 8px 0;
+}
+
+#generatePassword {
+  width: 100%;
+  padding: 12px;
+  background: #16a34a;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.generated-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+}
