@@ -106,3 +106,14 @@ ul li {
   border: none;
   border-radius: 8px;
 }
+
+#clearPassword {
+  width: 100%;
+  padding: 12px;
+  background: #dc2626;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
