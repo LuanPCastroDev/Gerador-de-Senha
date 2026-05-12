@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const strengthText = document.getElementById("strengthText");
   const generatePassword = document.getElementById("generatePassword");
   const generatedPassword = document.getElementById("generatedPassword");
+  const clearPassword = document.getElementById("clearPassword");
 
   const commonPasswords = ["123456", "password", "qwerty", "admin", "12345678"];
 
@@ -91,4 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     generatedPassword.value = password;
   });
+
+  function clearGeneratedPassword() {
+    generatedPassword.value = "";
+  }
+
+  clearPassword.addEventListener("click", clearGeneratedPassword);
 });
