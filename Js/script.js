@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const generatePassword = document.getElementById("generatePassword");
   const generatedPassword = document.getElementById("generatedPassword");
   const clearPassword = document.getElementById("clearPassword");
-
+  const copiarsenha = document.getElementById("copiarsenha");
   const commonPasswords = ["123456", "password", "qwerty", "admin", "12345678"];
 
   passwordInput.addEventListener("input", checkPasswordStrength);
@@ -98,4 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   clearPassword.addEventListener("click", clearGeneratedPassword);
+
+  copiarsenha.addEventListener("click", () => {
+  if (generatedPassword.value !== "") {
+    navigator.clipboard.writeText(generatedPassword.value)
+      .then(() => {
+        alert("Senha copiada com sucesso!");
+      })
+      .catch(() => {
+        alert("Erro ao copiar senha.");
+      });
+  } else {
+    alert("Nenhuma senha foi gerada ainda.");
+  }
+});
 });
