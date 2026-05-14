@@ -105,6 +105,40 @@ ul li {
   margin-bottom: 15px;
 }
 
+.history-box {
+  margin-top: 20px;
+  padding: 16px;
+  background: #1e293b;
+  border-radius: 12px;
+}
+
+.history-box h2 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+#passwordHistoryList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#passwordHistoryList li {
+  padding: 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+#passwordHistoryList li.history-empty {
+  color: #94a3b8;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
 .generated-box input {
   width: 100%;
   padding: 12px;

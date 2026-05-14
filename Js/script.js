@@ -7,8 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const generatedPassword = document.getElementById("generatedPassword");
   const clearPassword = document.getElementById("clearPassword");
   const copiarsenha = document.getElementById("copiarsenha");
+  const passwordHistoryList = document.getElementById("passwordHistoryList");
   const commonPasswords = ["123456", "password", "qwerty", "admin", "12345678"];
   const forcadesenha = document.getElementById("forcadesenha");
+  const passwordHistory = [];
 
   passwordInput.addEventListener("input", checkPasswordStrength);
 
@@ -111,7 +113,34 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
 
     generatedPassword.value = password;
+    updatePasswordHistory(password);
   });
+
+  function renderPasswordHistory() {
+    passwordHistoryList.innerHTML = "";
+
+    if (passwordHistory.length === 0) {
+      const emptyItem = document.createElement("li");
+      emptyItem.className = "history-empty";
+      emptyItem.textContent = "Nenhuma senha gerada ainda.";
+      passwordHistoryList.appendChild(emptyItem);
+      return;
+    }
+
+    passwordHistory.forEach((historyPassword) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = historyPassword;
+      passwordHistoryList.appendChild(listItem);
+    });
+  }
+
+  function updatePasswordHistory(password) {
+    passwordHistory.unshift(password);
+    if (passwordHistory.length > 5) {
+      passwordHistory.pop();
+    }
+    renderPasswordHistory();
+  }
 
   function clearGeneratedPassword() {
     generatedPassword.value = "";
