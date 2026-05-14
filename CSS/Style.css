@@ -76,8 +76,13 @@ h1 {
 }
 
 #strengthText {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-weight: bold;
+}
+
+#strengthScore {
+  margin-bottom: 15px;
+  color: #cbd5e1;
 }
 
 ul {

@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearPassword = document.getElementById("clearPassword");
   const copiarsenha = document.getElementById("copiarsenha");
   const commonPasswords = ["123456", "password", "qwerty", "admin", "12345678"];
+  const forcadesenha = document.getElementById("forcadesenha");
 
   passwordInput.addEventListener("input", checkPasswordStrength);
 
@@ -45,26 +46,45 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCriteria("common", commonValid);
 
     let score = 0;
-    if (lengthValid) score++;
-    if (uppercaseValid) score++;
-    if (lowercaseValid) score++;
-    if (numberValid) score++;
-    if (specialValid) score++;
-    if (commonValid) score++;
-
-    const percentage = (score / 6) * 100;
-    strengthBar.style.width = `${percentage}%`;
-
-    if (score <= 2) {
-      strengthBar.style.background = "red";
-      strengthText.textContent = "Força: Fraca";
-    } else if (score <= 4) {
-      strengthBar.style.background = "orange";
-      strengthText.textContent = "Força: Média";
-    } else {
-      strengthBar.style.background = "green";
-      strengthText.textContent = "Força: Forte";
+    if (commonValid) score += 20;
+    if (uppercaseValid) score += 15;
+    if (lowercaseValid) score += 15;
+    if (numberValid) score += 15;
+    if (specialValid) score += 15;
+    if (lengthValid) {
+      if (password.length >= 15) {
+        score += 20;
+      } else if (password.length >= 12) {
+        score += 15;
+      } else {
+        score += 10;
+      }
     }
+
+    strengthBar.style.width = `${score}%`;
+    forcadesenha.textContent = `Score: ${score} / 100`;
+
+    let strengthLabel = "Nenhuma";
+    if (!password) {
+      strengthBar.style.background = "#334155";
+      strengthLabel = "Nenhuma";
+    } else if (score <= 20) {
+      strengthBar.style.background = "#dc2626";
+      strengthLabel = "Muito Fraca";
+    } else if (score <= 40) {
+      strengthBar.style.background = "#f97316";
+      strengthLabel = "Fraca";
+    } else if (score <= 60) {
+      strengthBar.style.background = "#eab308";
+      strengthLabel = "Média";
+    } else if (score <= 80) {
+      strengthBar.style.background = "#22c55e";
+      strengthLabel = "Forte";
+    } else {
+      strengthBar.style.background = "#14b8a6";
+      strengthLabel = "Muito Forte";
+    }
+    strengthText.textContent = `Força: ${strengthLabel}`;
   }
 
   generatePassword.addEventListener("click", () => {
